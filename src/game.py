@@ -32,3 +32,27 @@ def calcular_picas_y_fijas(numero_secreto, intento):
             picas += 1
 
     return picas, fijas
+
+
+def validar_intento(intento):
+    """
+    Comprueba que un intento sea un número válido
+    de cuatro dígitos, sin repeticiones y sin iniciar en cero.
+    """
+    if not isinstance(intento, str):
+        return False
+
+    if len(intento) != 4:
+        return False
+
+    if not all(digito in "0123456789" for digito in intento):
+        return False
+
+    if intento[0] == "0":
+        return False
+
+    if len(set(intento)) != 4:
+        return False
+
+    return True
+
