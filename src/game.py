@@ -13,3 +13,22 @@ def generar_numero_secreto():
     )
 
     return primer_digito + "".join(otros_digitos)
+
+
+def calcular_picas_y_fijas(numero_secreto, intento):
+    """
+    Calcula la cantidad de picas y fijas entre
+    el número secreto y el intento del jugador.
+
+    Retorna una tupla: (picas, fijas).
+    """
+    fijas = 0
+    picas = 0
+
+    for posicion in range(4):
+        if intento[posicion] == numero_secreto[posicion]:
+            fijas += 1
+        elif intento[posicion] in numero_secreto:
+            picas += 1
+
+    return picas, fijas
